@@ -1,0 +1,19 @@
+{
+  "name": "platform-docs",
+  "version": "1.0.0",
+  "description": "This documentation provides comprehensive architecture diagrams, database schemas, API references, and implementation details for the platform.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "^11.12.0"
+  }
+}

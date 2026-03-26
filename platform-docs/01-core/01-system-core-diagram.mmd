@@ -1,0 +1,26 @@
+graph TD
+    subgraph Core [System Core]
+        User[User]
+        Role[Role / Permission]
+        Settings[Platform Settings]
+        Notifications[Notifications]
+    end
+
+    subgraph UserTypes [User Types]
+        Admin[Administrator]
+        Seller[Seller]
+        Developer[Developer]
+        Client[Client]
+        Employee[Employee]
+    end
+
+    User --> Role
+    User --> Notifications
+    Settings --> User
+
+    User -- "has a profile" --> Seller
+    User -- "has a profile" --> Developer
+    User -- "has a profile" --> Client
+    User -- "has an employee record" --> Employee
+    Admin -- "manages" --> User
+    Admin -- "configures" --> Settings

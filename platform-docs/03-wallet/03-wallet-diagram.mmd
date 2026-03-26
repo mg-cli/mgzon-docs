@@ -1,0 +1,41 @@
+graph TD
+    subgraph Wallets [Wallets & Accounts]
+        SellerWallet[Seller Wallet]
+        DeveloperWallet[Developer Wallet]
+        MGPayAccount[MGPay Account]
+        BankAccount[Linked Bank Account]
+    end
+
+    subgraph TransactionFlow [Transaction Flow]
+        Deposit[Deposit / Top-up]
+        Withdrawal[Withdrawal Request]
+        Transfer[Transfer / Payout]
+        ATMWithdrawal[ATM Withdrawal]
+    end
+
+    subgraph RewardSystem [Reward System]
+        Commission[Commission Calculation]
+        Referral[Referral Program]
+        TierSystem[Tier System]
+        Points[Points / Loyalty]
+    end
+
+    Seller --> SellerWallet
+    Developer --> DeveloperWallet
+
+    User[User] -- "has an" --> MGPayAccount
+    MGPayAccount -- "linked to" --> BankAccount
+
+    MGPayAccount -- "can perform" --> Deposit
+    MGPayAccount -- "can request" --> Withdrawal
+    MGPayAccount -- "can initiate" --> Transfer
+    MGPayAccount -- "can use" --> ATMWithdrawal
+
+    Transaction[Transaction] -- "updates" --> MGPayAccount
+    Transaction -- "records fees for" --> Commission
+
+    SellerWallet -- "is used for" --> Commission
+    DeveloperWallet -- "is used for" --> Commission
+    DeveloperWallet -- "is used for" --> Referral
+    DeveloperWallet -- "is used for" --> TierSystem
+    Points -- "can be redeemed for" --> SellerWallet
