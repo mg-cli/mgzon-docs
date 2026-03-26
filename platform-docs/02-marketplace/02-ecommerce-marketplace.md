@@ -345,3 +345,20 @@ type Order {
 - [Inventory Management](../08-inventory/09-inventory-management.md)
 - [Order Fulfillment](../10-fulfillment/11-order-fulfillment.md)
 - [Store Design](../09-design/10-store-design.md)
+
+```mermaid
+graph TD
+    subgraph MarketplaceCore [Marketplace Core]
+        Store[Store]
+        Product[Product]
+        Category[Category]
+        Order[Order]
+        Cart[Cart]
+    end
+
+    Seller[Seller] -- "owns" --> Store
+    Store -- "has many" --> Product
+    Product -- "belongs to" --> Category
+    User[User] -- "adds to" --> Cart
+    Cart -- "converts to" --> Order
+```
