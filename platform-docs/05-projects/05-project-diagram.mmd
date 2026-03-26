@@ -1,0 +1,11 @@
+graph TD
+    Client[Client] -- "creates" --> Project[Project]
+    Employee[Employee] -- "submits" --> Bid[Bid]
+    Project -- "receives" --> Bid
+    Client -- "accepts" --> Bid
+    Accept -- "creates" --> Contract[Contract]
+    Contract -- "contains" --> Milestone[Milestone]
+    Employee -- "submits work to" --> Submission[Submission]
+    Submission -- "reviewed for" --> Milestone
+    Contract -- "can lead to" --> Dispute[Dispute]
+    Dispute -- "resolved by Admin" --> Resolution[Resolution]

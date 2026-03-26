@@ -1,0 +1,32 @@
+graph TD
+    subgraph MarketplaceCore [Marketplace Core]
+        Store[Store]
+        Product[Product]
+        Category[Category]
+        Order[Order]
+        Cart[Cart]
+        Checkout[Checkout Process]
+    end
+
+    subgraph StoreDesign [Store Design]
+        Theme[Theme]
+        Template[Template]
+        PageBuilder[Page Builder]
+    end
+
+    subgraph Extensions [Extensions]
+        Integration[Integration]
+        Dropshipping[Dropshipping]
+        Coupon[Coupon]
+    end
+
+    Seller[Seller] -- "owns" --> Store
+    Store -- "has many" --> Product
+    Product -- "belongs to" --> Category
+    User[User] -- "adds to" --> Cart
+    Cart -- "converts to" --> Order
+    Order -- "processed via" --> Checkout
+    Store -- "uses" --> Theme
+    Store -- "can install" --> Integration
+    Product -- "can be sourced via" --> Dropshipping
+    Checkout -- "can apply" --> Coupon
