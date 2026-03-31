@@ -1,0 +1,65 @@
+%%{init: {'theme': 'base', 'themeVariables': {
+  'primaryColor': '#3B82F6',
+  'primaryTextColor': '#fff',
+  'primaryBorderColor': '#1E40AF',
+  'lineColor': '#6B7280',
+  'secondaryColor': '#F3F4F6'
+}}}%%
+
+flowchart TD
+    subgraph INPUT["User Input"]
+        A[User Types Message]
+        B[Validate Input]
+        C{Valid?}
+    end
+    
+    subgraph CHECK["Validation Checks"]
+        D{API Key<br/>Configured?}
+        E{Daily Limit<br/>Available?}
+        F{AI Status<br/>Enabled?}
+    end
+    
+    subgraph ERROR["Error Handling"]
+        G[Show Setup<br/>Instructions]
+        H[Show Limit<br/>Message]
+        I[Show Disabled<br/>Message]
+    end
+    
+    subgraph PROCESS["Processing"]
+        J[Send to<br/>Gemini API]
+        K[Parse AI<br/>Response]
+        L[Update Usage<br/>Counter]
+        M[Save to<br/>History]
+    end
+    
+    subgraph OUTPUT["Response"]
+        N[Display<br/>Message]
+        O[Show Template<br/>Preview]
+        P[Show Product<br/>Preview]
+        Q[Copy Button<br/>Available]
+    end
+    
+    A --> B --> C
+    C -->|No| G
+    C -->|Yes| D
+    
+    D -->|No| G
+    D -->|Yes| E
+    
+    E -->|No| H
+    E -->|Yes| F
+    
+    F -->|No| I
+    F -->|Yes| J
+    
+    J --> K --> L --> M --> N
+    N --> O
+    N --> P
+    N --> Q
+    
+    style A fill:#3B82F6,stroke:#1E40AF,color:#fff
+    style J fill:#10B981,stroke:#047857,color:#fff
+    style N fill:#8B5CF6,stroke:#6D28D9,color:#fff
+    style G fill:#EF4444,stroke:#DC2626,color:#fff
+    style H fill:#F59E0B,stroke:#D97706,color:#fff
+    style I fill:#6B7280,stroke:#4B5563,color:#fff

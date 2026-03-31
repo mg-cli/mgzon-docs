@@ -1,0 +1,59 @@
+%%{init: {'theme': 'base', 'themeVariables': {
+  'primaryColor': '#3B82F6',
+  'primaryTextColor': '#fff',
+  'primaryBorderColor': '#1E40AF',
+  'lineColor': '#6B7280',
+  'secondaryColor': '#F3F4F6',
+  'tertiaryColor': '#fff'
+}}}%%
+
+graph TB
+    subgraph "Client Side"
+        direction LR
+        CW[Chat Widget<br/>Chatbote.tsx]
+        CS[Settings Panel<br/>ChatWidgetSettings.tsx]
+        LS[Local State<br/>React useState]
+        PV[Live Preview<br/>Real-time Updates]
+    end
+    
+    subgraph "API Layer"
+        direction TB
+        CG[Gemini API<br/>/api/seller/chat-gemini]
+        WS[Widget Settings API<br/>/api/seller/chat-widget-settings]
+        AUTH[Auth Middleware<br/>NextAuth.js]
+        RATE[Rate Limiter<br/>Daily Usage]
+    end
+    
+    subgraph "External Services"
+        GOOGLE[Google Gemini AI<br/>gemini-1.5-flash]
+    end
+    
+    subgraph "Database Layer"
+        direction LR
+        SELLER[(Seller Collection<br/>API Keys & Usage)]
+        CHAT[(Chat History<br/>Conversation Logs)]
+        WIDGET[(Widget Settings<br/>Customization)]
+    end
+    
+    CW --> AUTH
+    CS --> AUTH
+    AUTH --> CG
+    AUTH --> WS
+    CG --> RATE
+    CG --> SELLER
+    CG --> CHAT
+    CG --> GOOGLE
+    WS --> WIDGET
+    CW --> LS
+    CS --> LS
+    LS --> PV
+    CW --> PV
+    
+    style CW fill:#3B82F6,stroke:#1E40AF,color:#fff
+    style CS fill:#3B82F6,stroke:#1E40AF,color:#fff
+    style CG fill:#10B981,stroke:#047857,color:#fff
+    style WS fill:#10B981,stroke:#047857,color:#fff
+    style GOOGLE fill:#8B5CF6,stroke:#6D28D9,color:#fff
+    style SELLER fill:#F59E0B,stroke:#D97706,color:#fff
+    style CHAT fill:#F59E0B,stroke:#D97706,color:#fff
+    style WIDGET fill:#F59E0B,stroke:#D97706,color:#fff

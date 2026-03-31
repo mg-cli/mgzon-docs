@@ -28,6 +28,7 @@ This document provides comprehensive architecture diagrams and documentation for
 | 🔒 **Security** | [platform-docs/12-security/](./platform-docs/12-security/) | Authentication, authorization, compliance |
 | 🔌 **API** | [platform-docs/13-api/](./platform-docs/13-api/) | GraphQL API, integrations, webhooks |
 | 📈 **Monitoring** | [platform-docs/14-monitoring/](./platform-docs/14-monitoring/) | System health, alerts, recovery |
+| 🤖 **AI Assistant** | [platform-docs/15-chatbot/](./platform-docs/15-chatbot/) | AI-powered chat widget for sellers |
 
 ## System Architecture Diagrams
 
@@ -42,6 +43,7 @@ This document provides comprehensive architecture diagrams and documentation for
 | 05 | [Project & Service Management](./platform-docs/05-projects/05-project-management.md) | Projects, bids, contracts, milestones, disputes |
 | 06 | [Land & Inheritance Management](./platform-docs/06-land/06-land-management.md) | Land ownership, heirs, transactions, inheritance |
 | 07 | [Admin & Governance](./platform-docs/07-admin/07-admin-governance.md) | User management, roles, analytics, audit logs |
+| 08 | [AI Assistant Chatbot](./platform-docs/15-chatbot/01-chatbot-overview.md) | AI-powered chat widget for store management |
 
 ### Database Schemas
 
@@ -82,12 +84,6 @@ This document provides comprehensive architecture diagrams and documentation for
 | **Infrastructure** | Docker, Kubernetes, AWS |
 | **Monitoring** | Datadog, Sentry, Logtail |
 
-
-
-
-
-
-
 ## Version History
 
 | Version | Date | Description |
@@ -95,7 +91,8 @@ This document provides comprehensive architecture diagrams and documentation for
 | 1.0.0 | 2026-03-26 | Initial documentation with 14 architecture modules |
 | 1.1.0 | 2026-03-26 | Added Mermaid diagrams for all modules |
 | 1.2.0 | 2026-03-26 | Complete database schemas and GraphQL API docs |
+| 1.3.0 | 2026-03-31 | Added AI Assistant Chatbot module documentation |
 
 ## License
 
-Copyright © 2026 MGZon Platform. All rights reserved.
+## Copyright © 2026 MGZon Platform. All rights reserved.
