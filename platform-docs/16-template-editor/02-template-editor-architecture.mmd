@@ -1,0 +1,90 @@
+%%{init: {'theme': 'base', 'themeVariables': {
+  'primaryColor': '#3B82F6',
+  'primaryTextColor': '#fff',
+  'primaryBorderColor': '#1E40AF',
+  'lineColor': '#6B7280',
+  'secondaryColor': '#F3F4F6',
+  'tertiaryColor': '#fff'
+}}}%%
+
+graph TB
+    subgraph "Client Side"
+        direction TB
+        TE[TemplateEditor.tsx<br/>Main Component]
+        TI[TemplateImporter.tsx<br/>Import/Export]
+        TL[TemplateLibrary.tsx<br/>Template Selection]
+        CS[CraftSectionRenderer.tsx<br/>Section Rendering]
+    end
+    
+    subgraph "UI Components"
+        direction LR
+        TABS[Tabs Navigation<br/>6 Main Tabs]
+        DND[Drag & Drop<br/>dnd-kit]
+        EDITOR[Code Editor<br/>Monaco Editor]
+        PREVIEW[Live Preview<br/>Craft.js Frame]
+        STATS[Quick Stats Cards<br/>4 Metrics]
+    end
+    
+    subgraph "State Management"
+        direction LR
+        LS[Local State<br/>useState/useCallback]
+        CUSTOM[Custom Hooks<br/>useTemplateBuilder<br/>useDesignManagement]
+        CONTEXT[React Context<br/>Theme/Settings]
+    end
+    
+    subgraph "API Layer"
+        direction TB
+        SAVE[Save Template API<br/>/api/templates/save]
+        APPLY[Apply Template API<br/>/api/templates/apply]
+        IMPORT[Import Template API<br/>/api/templates/import]
+        EXPORT[Export Template API<br/>/api/templates/export]
+    end
+    
+    subgraph "External Services"
+        STORAGE[Cloud Storage<br/>Images/Assets]
+        MONACO[Monaco Editor<br/>Code Editor]
+        CRAFT[Craft.js<br/>Drag & Drop Builder]
+    end
+    
+    subgraph "Database Layer"
+        direction LR
+        TEMPLATES[(Templates<br/>Collection)]
+        SECTIONS[(Sections<br/>Collection)]
+        ASSETS[(Assets<br/>Collection)]
+        STORES[(Stores<br/>Collection)]
+    end
+    
+    TE --> TABS
+    TE --> DND
+    TE --> EDITOR
+    TE --> PREVIEW
+    TE --> STATS
+    TE --> LS
+    TE --> CUSTOM
+    
+    TI --> IMPORT
+    TI --> EXPORT
+    TL --> SAVE
+    
+    CS --> CRAFT
+    
+    CUSTOM --> SAVE
+    CUSTOM --> APPLY
+    IMPORT --> STORAGE
+    EXPORT --> STORAGE
+    
+    SAVE --> TEMPLATES
+    SAVE --> SECTIONS
+    IMPORT --> TEMPLATES
+    IMPORT --> ASSETS
+    APPLY --> STORES
+    
+    style TE fill:#3B82F6,stroke:#1E40AF,color:#fff
+    style TI fill:#3B82F6,stroke:#1E40AF,color:#fff
+    style TL fill:#3B82F6,stroke:#1E40AF,color:#fff
+    style CS fill:#10B981,stroke:#047857,color:#fff
+    style DND fill:#8B5CF6,stroke:#6D28D9,color:#fff
+    style EDITOR fill:#8B5CF6,stroke:#6D28D9,color:#fff
+    style PREVIEW fill:#8B5CF6,stroke:#6D28D9,color:#fff
+    style CUSTOM fill:#F59E0B,stroke:#D97706,color:#fff
+    style TEMPLATES fill:#EF4444,stroke:#DC2626,color:#fff
