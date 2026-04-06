@@ -1,0 +1,77 @@
+%%{init: {'theme': 'base', 'themeVariables': {
+  'primaryColor': '#3B82F6',
+  'primaryTextColor': '#fff',
+  'primaryBorderColor': '#1E40AF',
+  'lineColor': '#6B7280',
+  'secondaryColor': '#F3F4F6'
+}}}%%
+
+flowchart TD
+    subgraph USER["User Actions"]
+        A[Edit Section]
+        B[Drag & Drop]
+        C[Add Section]
+        D[Save Template]
+        E[Import Template]
+        F[Export Template]
+        G[Toggle Developer Mode]
+        H[Change Colors/Fonts]
+    end
+    
+    subgraph UI["UI Layer"]
+        A1[Update Form State]
+        B1[Reorder Sections]
+        C1[Append New Section]
+        D1[Collect Template Data]
+        E1[Parse File/Code]
+        F1[Generate JSON/ZIP]
+        G1[Show/Hide Code Editor]
+        H1[Update Color Preview]
+    end
+    
+    subgraph STATE["State Management"]
+        A2[setSections]
+        B2[setSections]
+        C2[setSections]
+        D2[validateData]
+        E2[sanitizeContent]
+        F2[formatForExport]
+        G2[setIsDeveloperMode]
+        H2[setColors/setFont]
+    end
+    
+    subgraph API["API Layer"]
+        A3[Save to Database]
+        B3[Fetch Templates]
+        C3[Import Template]
+        D3[Export Template]
+    end
+    
+    subgraph DB["Database"]
+        A4[(Templates)]
+        B4[(Sections)]
+        C4[(Assets)]
+    end
+    
+    subgraph PREVIEW["Live Preview"]
+        A5[Update Craft.js Frame]
+        B5[Refresh Preview]
+        C5[Responsive View]
+    end
+    
+    A --> A1 --> A2 --> A5
+    B --> B1 --> B2 --> B5
+    C --> C1 --> C2 --> B5
+    D --> D1 --> D2 --> A3 --> A4
+    E --> E1 --> E2 --> C3 --> A4
+    E1 --> E2 --> C4
+    F --> F1 --> F2 --> D3
+    G --> G1 --> G2
+    H --> H1 --> H2 --> A5
+    
+    style A fill:#3B82F6,stroke:#1E40AF,color:#fff
+    style D fill:#10B981,stroke:#047857,color:#fff
+    style E fill:#F59E0B,stroke:#D97706,color:#fff
+    style F fill:#8B5CF6,stroke:#6D28D9,color:#fff
+    style A4 fill:#EF4444,stroke:#DC2626,color:#fff
+    style PREVIEW fill:#06B6D4,stroke:#0891B2,color:#fff

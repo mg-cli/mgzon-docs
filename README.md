@@ -29,6 +29,8 @@ This document provides comprehensive architecture diagrams and documentation for
 | 🔌 **API** | [platform-docs/13-api/](./platform-docs/13-api/) | GraphQL API, integrations, webhooks |
 | 📈 **Monitoring** | [platform-docs/14-monitoring/](./platform-docs/14-monitoring/) | System health, alerts, recovery |
 | 🤖 **AI Assistant** | [platform-docs/15-chatbot/](./platform-docs/15-chatbot/) | AI-powered chat widget for sellers |
+| 🎨 **Template Editor** | [platform-docs/16-template-editor/](./platform-docs/16-template-editor/) | Drag-and-drop template builder with live preview |
+| 🎨 **Design System** | [platform-docs/17-design-system/](./platform-docs/17-design-system/) | UI component library with Craft.js integration |
 
 ## System Architecture Diagrams
 
@@ -44,6 +46,9 @@ This document provides comprehensive architecture diagrams and documentation for
 | 06 | [Land & Inheritance Management](./platform-docs/06-land/06-land-management.md) | Land ownership, heirs, transactions, inheritance |
 | 07 | [Admin & Governance](./platform-docs/07-admin/07-admin-governance.md) | User management, roles, analytics, audit logs |
 | 08 | [AI Assistant Chatbot](./platform-docs/15-chatbot/01-chatbot-overview.md) | AI-powered chat widget for store management |
+| 09 | [Template Editor](./platform-docs/16-template-editor/01-template-editor-overview.md) | Drag-and-drop template builder with live preview |
+| 10 | [Design System](./platform-docs/17-design-system/01-design-system-overview.md) | UI component library with Craft.js integration |
+
 
 ### Database Schemas
 
